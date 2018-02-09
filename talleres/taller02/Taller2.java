@@ -94,7 +94,7 @@ public class Taller2 {
     }
   }
 
-  public static int queens(int n) { // returns number of queens
+  public static int queens(int n) {
     queenAns = 0;
     int[] tablero = new int[n];
     String numeros = "";
