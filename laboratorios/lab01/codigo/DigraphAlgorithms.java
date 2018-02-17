@@ -31,28 +31,42 @@ public class DigraphAlgorithms
   }
 
   public static void colombianGraph() throws IOException {
+    
     BufferedReader scan = new BufferedReader(new FileReader("medellin_colombia-grande.txt"));
-    HashMap<Integer, Integer> map = new HashMap<Integer, Integer>(310153);
+    HashMap<String, Integer> map = new HashMap<String, Integer>(310153);
     String cadena = scan.readLine();
     int i = 0;
+    int j = 0;
     DigraphAL colombia = new DigraphAL(310153);
 
     cadena = scan.readLine();
-    while(!cadena.equals(" ")) {
-      String[] info = cadena.split(" ");
-      map.put(Integer.parseInt(info[0]),i);
-      i += 1;
+
+    try{
+      while(!cadena.equals("")){
+        String[] info = cadena.split(" ");
+        map.put(info[0],i);
+        i += 1;
+        cadena = scan.readLine();
+      }
+      
       cadena = scan.readLine();
-    }
-    
-    cadena = scan.readLine();
-    cadena = scan.readLine();
-    while(!cadena.equals(" ")) {
-      String[] infoArc = cadena.split(" ");
-      colombia.addArc(map.get(Integer.parseInt(infoArc[0])),
-                      map.get(Integer.parseInt(infoArc[1])),
-                      Integer.parseInt(infoArc[2])
-                      );
+      cadena = scan.readLine();
+
+      HashMap<String, Integer> weightsMap = new HashMap<String, Integer>();
+
+      while(!cadena.equals("")) {
+        String[] infoArc = cadena.split(" ");
+        weightsMap.put(infoArc[2], j);
+        colombia.addArc(map.get(infoArc[0]),
+                        map.get(infoArc[1]),
+                        weightsMap.get(infoArc[2])
+                        );
+        
+        j += 1;
+        cadena = scan.readLine();
+      }
+    }catch(NullPointerException e){
+      System.out.println("Grafo Creado"); // excepcion necesaria para terminar la lectura del .txt
     }
   }
 
