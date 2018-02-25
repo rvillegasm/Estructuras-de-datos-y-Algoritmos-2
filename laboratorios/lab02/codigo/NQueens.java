@@ -1,6 +1,6 @@
 
 /**
- * NQueens
+ * Implementacion de NQueens valida para n de 0 a 9 por el uso de strings
  */
 public class NQueens {
 
@@ -63,7 +63,10 @@ public class NQueens {
   }
 
   public static void main(String[] args) {
+    long startTime = System.currentTimeMillis();
     queens(8);
+    long endTime = System.currentTimeMillis();
+    System.out.println("That took " + (endTime - startTime) + " milliseconds");
   }
   
 }
