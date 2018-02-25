@@ -45,8 +45,10 @@ public class NQueens {
       }
 
     } else {
-      for (int i = 0; i < pos.length(); i++) {
-        permutationsQueen(pre + "," + pos.charAt(i), pos.substring(0, i) + pos.substring(i + 1), tablero);
+      for (int i = 0; i < pos.length(); i=i+2) {
+         
+          permutationsQueen(pre + "," + pos.charAt(i)+pos.charAt(i+1), pos.substring(0, i) + pos.substring(i + 2), tablero);
+         
       }
     }
   }
@@ -56,7 +58,11 @@ public class NQueens {
     int[] tablero = new int[n];
     String numeros = "";
     for(int i = 0; i < n; i++) {
+      if(i>=0 && i<=9){
+        numeros = numeros + "0" + i;
+      }else{
       numeros = numeros + i;
+      }
     }
     permutationsQueen("", numeros, tablero);
     return queenAns;
@@ -64,7 +70,7 @@ public class NQueens {
 
   public static void main(String[] args) {
     long startTime = System.currentTimeMillis();
-    queens(8);
+    System.out.println(queens(10));
     long endTime = System.currentTimeMillis();
     System.out.println("That took " + (endTime - startTime) + " milliseconds");
   }
