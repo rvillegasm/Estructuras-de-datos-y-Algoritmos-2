@@ -70,7 +70,7 @@ public class NQueens {
 
   public static void main(String[] args) {
     long startTime = System.currentTimeMillis();
-    System.out.println(queens(10));
+    System.out.println(queens(13));
     long endTime = System.currentTimeMillis();
     System.out.println("That took " + (endTime - startTime) + " milliseconds");
   }
