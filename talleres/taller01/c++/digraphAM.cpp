@@ -21,7 +21,7 @@ int DigraphAM::getWeight(int source, int destination) const {
 
 std::vector<int> DigraphAM::getSuccessors(int vertex) {
   std::vector<int> list;
-  for(int j = 0; j < m_Size; i++) {
+  for(int j = 0; j < m_Size; j++) {
     if(m_Matrix[vertex][j] != 0) {
       list.push_back(j);
     }
