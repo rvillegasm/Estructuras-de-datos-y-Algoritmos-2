@@ -8,12 +8,14 @@ DigraphAL::DigraphAL(int size) :
   Graph(size)
 {
   for(int i = 0; i < size; i++) {
-    m_List[i].emplace_front(std::make_pair(0,0));
+    std::pair<int,int> p = std::make_pair(0,0);
+    m_List[i] = {p};
   }
 }
 
 void DigraphAL::addArc(int source, int destination, int weight) {
-  m_List[source].emplace_back(std::make_pair(destination, weight));
+  std::pair<int,int> p = std::make_pair(destination, weight);
+  m_List[source].push_back(p);
 }
 
 int DigraphAL::getWeight(int source, int destination) const {

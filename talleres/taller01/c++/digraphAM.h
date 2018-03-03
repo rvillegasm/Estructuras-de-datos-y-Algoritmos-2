@@ -18,7 +18,7 @@ public:
 
   DigraphAM(int size);
     //m_Matrix = std::make_unique<std::array<std::array<int,size>,size>>;
-  virtual ~DigraphAM();
+  
 
   void addArc(int source, int destination, int weight);
   int getWeight(int source, int destination) const;

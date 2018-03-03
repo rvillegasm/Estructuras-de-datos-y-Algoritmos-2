@@ -7,7 +7,9 @@ DigraphAM::DigraphAM(int size) :
 {
   m_Matrix.reserve(size);
   for(int i = 0; i < m_Matrix.size(); i++) {
+    m_Matrix.reserve(size);
     m_Matrix[i].reserve(size);
+
   }
 }
 

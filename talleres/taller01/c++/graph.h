@@ -15,7 +15,7 @@ protected:
 public:
 
   Graph(int vertices);
-  virtual ~Graph ();
+  
 
   virtual void addArc(int source, int destination, int weight) = 0;
   virtual int getWeight(int source, int destination) const = 0;

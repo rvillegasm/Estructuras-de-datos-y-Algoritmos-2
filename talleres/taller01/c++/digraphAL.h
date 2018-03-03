@@ -19,7 +19,7 @@ public:
   std::vector<std::list<std::pair<int,int>>> m_List;
 
   DigraphAL(int size);
-  virtual ~DigraphAL();
+  
 
   void addArc(int source, int destination, int weight);
   int getWeight(int source, int destination) const;
