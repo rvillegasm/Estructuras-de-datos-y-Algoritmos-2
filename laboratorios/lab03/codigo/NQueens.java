@@ -59,7 +59,14 @@ public class NQueens {
   }
   
   public static void main(String[] args) {
-    System.out.println(nReinas(5));
+		for(int i = 4; i <= 32; i++) {
+		long startTime = System.currentTimeMillis();
+    nReinas(i);
+    long endTime = System.currentTimeMillis();
+    System.out.println(i +" queens took " + (endTime - startTime) + " milliseconds");
+		}
+		System.out.println();
+		
   }
   
 }
