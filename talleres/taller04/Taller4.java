@@ -69,7 +69,7 @@ public class Taller4 {
 
 	public static boolean hayCaminoBFS(Graph g, int a, int b) {
 		boolean visitados[] = new boolean[g.size()];
-		return hayCaminoDFSAux(g, a, b, visitados);
+		return hayCaminoBFSAux(g, a, b, visitados);
 	}
 
 	private static boolean hayCaminoBFSAux(Graph g, int v, int w, boolean[] visitados) {
