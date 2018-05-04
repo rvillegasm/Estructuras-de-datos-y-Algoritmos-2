@@ -1,5 +1,6 @@
 /**
  * N-Queens with Local Search
+ * NO FUNCIONÓ, PARA VER EL QUE SI FUNCIONA, REMITASE AL ARCHIVO .py
  */
 public class Taller12 {
 
