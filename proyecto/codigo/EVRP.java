@@ -22,7 +22,7 @@ public class EVRP {
     double st_customer = 0;
     double q = 0;
 
-    BufferedReader scan = new BufferedReader(new FileReader(tc2c320s24cf0.txt)); // CHANGE SPECIFIED FILE HERE
+    BufferedReader scan = new BufferedReader(new FileReader("tc2c320s24cf0.txt")); // CHANGE SPECIFIED FILE HERE
     // read the variable values
     for(int i = 0; i < 10; i++) {
       String[] temp = scan.readLine().split(" ");
@@ -78,7 +78,6 @@ public class EVRP {
 
       String[] vertexInfo = scan.readLine().split(" ");
       int numPoint = 0;
-      int numStations = 0;
 
       switch (vertexInfo[4]) {
         case "d":
@@ -125,7 +124,7 @@ public class EVRP {
 
     // --------------------------------------IT FINISHED READING THE FILE------------------------------------------------
 
-    int k = 0; // define kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+    int k = 20; // define kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
     ImplEkmeans graphDivider = new ImplEkmeans();
     ArrayList<Pair<Graph, Integer>> subGraphsAndStations = new ArrayList<Pair<Graph, Integer>>(k);
     // divide the graph in various subgraphs, each with one station
@@ -150,7 +149,7 @@ public class EVRP {
       // go to next line
       System.out.print("\n");
     }
-    
+    scan.close();
 
   }
   

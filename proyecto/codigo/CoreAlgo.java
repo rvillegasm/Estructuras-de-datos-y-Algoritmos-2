@@ -27,7 +27,7 @@ public class CoreAlgo {
     ArrayList<ArrayList<Pair<Integer, Double>>> resultingPaths = new ArrayList<ArrayList<Pair<Integer, Double>>>(graphSet.size());
     // fill the result
     for(int i = 0; i < resultingPaths.size(); i++) {
-      resultingPaths.add(new ArrayList<Pair<Integer, Double>>());
+      resultingPaths.add(i, new ArrayList<Pair<Integer, Double>>());
     }
 
     // para cada subgrafo k
@@ -210,9 +210,9 @@ public class CoreAlgo {
 
 			ArrayList<Integer> successors = g.getSuccessors(u);
 			for(int v : successors) {
-				int alt = dist[u] + g.getWeight(u, v);
+				double alt = dist[u] + g.getWeight(u, v);
 				if(alt < dist[v]) {
-					dist[v] = alt;
+					dist[v] = (int) alt; // Machetaso
 					prev[v] = u;
 				}
 			}
