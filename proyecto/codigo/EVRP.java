@@ -22,7 +22,12 @@ public class EVRP {
     double st_customer = 0;
     double q = 0;
 
-    BufferedReader scan = new BufferedReader(new FileReader("tc2c320s24cf0.txt")); // CHANGE SPECIFIED FILE HERE
+    if(args.length != 1) {
+      System.err.println("Usage: java EVRP <File>");
+      System.exit(1);
+    }
+
+    BufferedReader scan = new BufferedReader(new FileReader(args[0])); // CHANGE SPECIFIED FILE HERE
     // read the variable values
     for(int i = 0; i < 10; i++) {
       String[] temp = scan.readLine().split(" ");
@@ -132,12 +137,13 @@ public class EVRP {
 
     // calculate the routes
     CoreAlgo routeProcessor = new CoreAlgo();
-    ArrayList<ArrayList<Pair<Integer, Double>>> routesAndTimes = routeProcessor.CMAlgo(subGraphsAndStations, q, r, speed, chargeTimePerHour, batteryLevelPerHour, st_customer);
+    ArrayList<ArrayList<Pair<Integer, Double>>> routesAndTimes = routeProcessor.CMAlgo(subGraphsAndStations, q, r, speed, chargeTimePerHour, batteryLevelPerHour, st_customer*60);
 
     // for each subgraph print it's route
-    for(int i = 0; k < routesAndTimes.size(); k++) {
+    for(int i = 0; i < routesAndTimes.size(); i++) {
 
-      System.out.print("Ruta " + i+1 + ": ");
+      System.out.print("Ruta " + (i+1) + ": ");
+      double timePerRoute = 0.0;
 
       for(int j = 0; j < routesAndTimes.get(i).size(); j++) {
 
@@ -145,7 +151,10 @@ public class EVRP {
         double timeTaken = routesAndTimes.get(i).get(j).getValue();
 
         System.out.println(vertex + "(" + timeTaken + "min), ");
+        timePerRoute += timeTaken;
       }
+
+      System.out.println("Total Route Time: " + timePerRoute + " min");
       // go to next line
       System.out.print("\n");
     }

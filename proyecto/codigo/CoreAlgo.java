@@ -26,12 +26,14 @@ public class CoreAlgo {
     // el resultado contiene arreglos de arreglos de parejas, donde el key es el nodo y el value es el tiempo que se demora hacia el
     ArrayList<ArrayList<Pair<Integer, Double>>> resultingPaths = new ArrayList<ArrayList<Pair<Integer, Double>>>(graphSet.size());
     // fill the result
-    for(int i = 0; i < resultingPaths.size(); i++) {
-      resultingPaths.add(i, new ArrayList<Pair<Integer, Double>>());
-    }
+    // for(int i = 0; i < resultingPaths.size(); i++) {
+      
+    // }
 
     // para cada subgrafo k
     for(int k = 0; k < graphSet.size(); k++) {
+      // fill result
+      resultingPaths.add(k, new ArrayList<Pair<Integer, Double>>());
       // añadir la pareja inicial
       resultingPaths.get(k).add( new Pair<Integer,Double>(0, 0.0));
 
@@ -40,7 +42,7 @@ public class CoreAlgo {
       int currentVertex = 0;
 
       // arreglo de visitados
-      boolean[] visited = new boolean[graphSet.get(k).size()-1]; 
+      boolean[] visited = new boolean[graphSet.get(k).size()]; 
       
       while(true) {
         //se marca como visitado el actual
