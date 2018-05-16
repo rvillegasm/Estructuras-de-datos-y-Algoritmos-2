@@ -1,9 +1,11 @@
 import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.util.Pair;
+
 
 /**
  * Electric Vehicle Routing Problem implementation
@@ -13,6 +15,8 @@ import javafx.util.Pair;
 public class EVRP {
 
   public static void main(String[] args) throws IOException {
+    // Reading time
+    long startTime = System.nanoTime();
 
     int n = 0;
     int m = 0;
@@ -27,7 +31,7 @@ public class EVRP {
       System.exit(1);
     }
 
-    BufferedReader scan = new BufferedReader(new FileReader(args[0])); // CHANGE SPECIFIED FILE HERE
+    BufferedReader scan = new BufferedReader(new FileReader(args[0]));
     // read the variable values
     for(int i = 0; i < 10; i++) {
       String[] temp = scan.readLine().split(" ");
@@ -126,10 +130,17 @@ public class EVRP {
       String[] temp = scan.readLine().split(" ");
       batteryLevelPerHour[i] = Double.parseDouble(temp[3]);
     }
+    // reading time
+    long endTime = System.nanoTime();
+    long duration = (endTime - startTime);
 
     // --------------------------------------IT FINISHED READING THE FILE------------------------------------------------
+    BufferedReader cantidadk = new BufferedReader(new InputStreamReader(System.in));
+    System.out.println("Ingrese la cantidad de camiones que necesite");
+    int k = Integer.parseInt(cantidadk.readLine()); 
+    // algo time
+    long startTime2 = System.nanoTime();
 
-    int k = 20; // define kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
     ImplEkmeans graphDivider = new ImplEkmeans();
     ArrayList<Pair<Graph, Integer>> subGraphsAndStations = new ArrayList<Pair<Graph, Integer>>(k);
     // divide the graph in various subgraphs, each with one station
@@ -138,6 +149,10 @@ public class EVRP {
     // calculate the routes
     CoreAlgo routeProcessor = new CoreAlgo();
     ArrayList<ArrayList<Pair<Integer, Double>>> routesAndTimes = routeProcessor.CMAlgo(subGraphsAndStations, q, r, speed, chargeTimePerHour, batteryLevelPerHour, st_customer*60);
+
+    // algo time
+    long endTime2 = System.nanoTime();
+    long duration2 = (endTime2 - startTime2);
 
     // for each subgraph print it's route
     for(int i = 0; i < routesAndTimes.size(); i++) {
@@ -159,6 +174,8 @@ public class EVRP {
       System.out.print("\n");
     }
     scan.close();
+
+    System.out.println("It took " + duration + " nanoseconds to read the data and " + duration2 + " nanoseconds to process it");
 
   }
   
