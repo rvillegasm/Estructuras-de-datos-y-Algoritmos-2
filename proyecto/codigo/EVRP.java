@@ -154,7 +154,7 @@ public class EVRP {
         timePerRoute += timeTaken;
       }
 
-      System.out.println("Total Route Time: " + timePerRoute + " min");
+      System.out.println("Total Route Time: " + timePerRoute + " min or " + timePerRoute/60 + " hours");
       // go to next line
       System.out.print("\n");
     }
