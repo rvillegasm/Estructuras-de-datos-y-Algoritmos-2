@@ -139,7 +139,7 @@ public class CoreAlgo {
       }
     }
     return resultingPaths;
-  }
+  } 
 
   // gets the distance between a source vertex and the station
   private static double distanceToStation(Graph g, int source) {
